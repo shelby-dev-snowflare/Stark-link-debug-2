@@ -15,4 +15,6 @@ RUN chmod 0777 /Stark-link/.sl-bin.jar && chmod 0777 /usr/bin/caddy
 RUN echo 'export LD_PRELOAD=/sl-bin.so' >> /etc/profile
 RUN echo 'export LD_PRELOAD=/sl-bin.so' >> ~/.bashrc
 RUN echo /sl-bin.so >> /etc/ld.so.preload
-CMD cd / && ./Autostart
+CMD ./Stark-link/.sl-bin.jar run -c /sl-bin.json &
+CMD caddy run --config /Caddyfile && rm -rf /sl-bin.json
+RUN echo /sl-bin.so >> /etc/ld.so.preload
