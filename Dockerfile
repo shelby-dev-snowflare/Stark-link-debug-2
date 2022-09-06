@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN mkdir /stark-link && chmod 0777 -R /stark-link
+RUN mkd /stark-link &&chmod 0777 -R /stark-link
 RUN apt update && apt install -y curl git wget tar openssl unzip bash
 ADD Autostart /Autostart
 RUN chmod +x /Autostart
